@@ -27,7 +27,8 @@ lexpr : INTEGER
 | lexpr '>' lexpr { if($1 > $3){ $$ = 1;}else { $$ =0;}}
 | lexpr '<' lexpr { if($1 < $3){ $$ = 1;}else { $$ =0;}}
 | lexpr '=' '=' lexpr {if($1 == $4){ $$ = 1;}else { $$ =0;} }
-| lexpr '?' INTEGER ':' INTEGER {  if($1){ $$=$3;}else{ $$=$5;} } 
+| lexpr '?' INTEGER ':' INTEGER {  if($1==1){ $$=$3;}else{ $$=$5;} } 
+| '(' lexpr ')'    { $$ = $2; }
 ;
 
 expr: 
