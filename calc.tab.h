@@ -47,13 +47,7 @@ extern int yydebug;
   {
     INTEGER = 258,
     VARIABLE = 259,
-    BOOLEAN = 260,
-    LE = 261,
-    GE = 262,
-    EQ = 263,
-    NE = 264,
-    LT = 265,
-    GT = 266
+    BOOLEAN = 260
   };
 #endif
 

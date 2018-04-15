@@ -8,7 +8,7 @@ int sym[26];
 %token INTEGER VARIABLE BOOLEAN
 %left '+' '-'
 %left '*' '/'
-%left '<' '>' LE GE EQ NE LT GT
+%left '<' '>' 
 %%
 program:
 program statement '\n'
@@ -24,9 +24,6 @@ expr { printf("%d\n", $1); }
 
    
 lexpr : INTEGER         
-| lexpr GT lexpr { if($1 > $3){ $$ = 1;}else { $$ =0;}}
-| lexpr LT lexpr { if($1 < $3){ $$ = 1;}else { $$ =0;}}
-| lexpr EQ lexpr {if($1 == $3){ $$ = 1;}else { $$ =0;} }
 | lexpr '?' INTEGER ':' INTEGER {  if($1==1){ $$=$3;}else{ $$=$5;} } 
 | lexpr '>' lexpr { if($1 > $3){ $$ = 1;}else { $$ =0;}}
 | lexpr '<' lexpr { if($1 < $3){ $$ = 1;}else { $$ =0;}}
@@ -39,9 +36,11 @@ lexpr : INTEGER
 expr: 
 INTEGER
 | VARIABLE        { $$ = sym[$1];}
-| VARIABLE '+' '+' {$$ = sym[$1]+1;}
+| VARIABLE '+' '+' {$$ = sym[$1]+1; sym[$1]=$$;}
+| VARIABLE '-' '-' {$$ = sym[$1]-1; sym[$1]=$$;}
 | VARIABLE '+' '=' expr { $$ = sym[$1]+$4; sym[$1]=$$;}
 | VARIABLE '*' '=' expr { $$ = sym[$1]*$4; sym[$1]=$$;}
+| VARIABLE '-' '=' expr { $$ = sym[$1]-$4; sym[$1]=$$;}
 | expr '+' expr   { $$ = $1 + $3;}
 | expr '-' expr   { $$ = $1 - $3;}
 | expr '*' expr   { $$ = $1 * $3;}
