@@ -24,18 +24,16 @@ expr { printf("%d\n", $1); }
 
    
 lexpr : INTEGER         
-<<<<<<< HEAD
 | lexpr GT lexpr { if($1 > $3){ $$ = 1;}else { $$ =0;}}
 | lexpr LT lexpr { if($1 < $3){ $$ = 1;}else { $$ =0;}}
 | lexpr EQ lexpr {if($1 == $3){ $$ = 1;}else { $$ =0;} }
 | lexpr '?' INTEGER ':' INTEGER {  if($1==1){ $$=$3;}else{ $$=$5;} } 
-=======
 | lexpr '>' lexpr { if($1 > $3){ $$ = 1;}else { $$ =0;}}
 | lexpr '<' lexpr { if($1 < $3){ $$ = 1;}else { $$ =0;}}
 | lexpr '=' '=' lexpr {if($1 == $4){ $$ = 1;}else { $$ =0;} }
 | lexpr '?' INTEGER ':' INTEGER {  if($1==1){ $$=$3;}else{ $$=$5;} } 
 | '(' lexpr ')'    { $$ = $2; }
->>>>>>> 1c1f6ac102e3ed7d65d0f002bb035f888a0bf894
+
 ;
 
 expr: 
