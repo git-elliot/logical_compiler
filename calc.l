@@ -13,8 +13,14 @@ void yyerror(char *);
            yylval = atoi(yytext);
            return INTEGER;
         }
-[-+()=/<>,*\n] { return *yytext; }
+[-+()=/,:*\n] { return *yytext; }
 [ \t] ;
+"<="    return LE;
+">="    return GE;
+"=="    return EQ;
+"!="    return NE;
+">"	return GT;
+"<"	return LT;
 . yyerror("invalid character");
 %%
 int yywrap(void) {

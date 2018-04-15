@@ -8,7 +8,7 @@ int sym[26];
 %token INTEGER VARIABLE BOOLEAN
 %left '+' '-'
 %left '*' '/'
-
+%left '<' '>' LE GE EQ NE LT GT
 %%
 program:
 program statement '\n'
@@ -24,10 +24,10 @@ expr { printf("%d\n", $1); }
 
    
 lexpr : INTEGER         
-| lexpr '>' lexpr { if($1 > $3){ $$ = 1;}else { $$ =0;}}
-| lexpr '<' lexpr { if($1 < $3){ $$ = 1;}else { $$ =0;}}
-| lexpr '=' '=' lexpr {if($1 == $3){ $$ = 1;}else { $$ =0;} }
-| lexpr '?' INTEGER ':' INTEGER {  if($1){ $$=$3;}else{ $$=$5;} } 
+| lexpr GT lexpr { if($1 > $3){ $$ = 1;}else { $$ =0;}}
+| lexpr LT lexpr { if($1 < $3){ $$ = 1;}else { $$ =0;}}
+| lexpr EQ lexpr {if($1 == $3){ $$ = 1;}else { $$ =0;} }
+| lexpr '?' INTEGER ':' INTEGER {  if($1==1){ $$=$3;}else{ $$=$5;} } 
 ;
 
 expr: 
