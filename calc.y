@@ -23,6 +23,7 @@ expr { printf("%d\n", $1); }
 expr: 
 INTEGER
 | VARIABLE        { $$ = sym[$1];}
+| VARIABLE '+' '+' {$$ = sym[$1]+1;}
 | expr '+' expr   { $$ = $1 + $3;}
 | expr '-' expr   { $$ = $1 - $3;}
 | expr '*' expr   { $$ = $1 * $3;}
