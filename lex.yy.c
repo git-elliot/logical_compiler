@@ -422,12 +422,20 @@ static yyconst YY_CHAR yy_ec[256] =
         1,    1,    1,    1,    1
     } ;
 
+<<<<<<< HEAD
 static yyconst YY_CHAR yy_meta[7] =
+=======
+static yyconst flex_int32_t yy_meta[7] =
+>>>>>>> 150005586d8c1dbb730d88efe9297d676452ab22
     {   0,
         1,    1,    1,    1,    2,    1
     } ;
 
+<<<<<<< HEAD
 static yyconst flex_uint16_t yy_base[13] =
+=======
+static yyconst flex_int16_t yy_base[13] =
+>>>>>>> 150005586d8c1dbb730d88efe9297d676452ab22
     {   0,
         0,    0,    8,    9,    9,    9,    9,    0,    9,    0,
         9,    5
@@ -439,7 +447,11 @@ static yyconst flex_int16_t yy_def[13] =
         0,   11
     } ;
 
+<<<<<<< HEAD
 static yyconst flex_uint16_t yy_nxt[16] =
+=======
+static yyconst flex_int16_t yy_nxt[16] =
+>>>>>>> 150005586d8c1dbb730d88efe9297d676452ab22
     {   0,
         4,    5,    6,    7,    8,    9,   10,   11,    3,   11,
        11,   11,   11,   11,   11
@@ -470,7 +482,11 @@ char *yytext;
 #include <stdlib.h>
 void yyerror(char *);
 #include "calc.tab.h"
+<<<<<<< HEAD
 #line 474 "lex.yy.c"
+=======
+#line 459 "lex.yy.c"
+>>>>>>> 150005586d8c1dbb730d88efe9297d676452ab22
 
 #define INITIAL 0
 
@@ -687,12 +703,16 @@ YY_DECL
 		yy_load_buffer_state( );
 		}
 
+<<<<<<< HEAD
 	{
 #line 6 "calc.l"
 
 #line 694 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
+=======
+	while ( 1 )		/* loops until end-of-file is reached */
+>>>>>>> 150005586d8c1dbb730d88efe9297d676452ab22
 		{
 		yy_cp = (yy_c_buf_p);
 
@@ -784,7 +804,11 @@ YY_RULE_SETUP
 #line 19 "calc.l"
 ECHO;
 	YY_BREAK
+<<<<<<< HEAD
 #line 788 "lex.yy.c"
+=======
+#line 763 "lex.yy.c"
+>>>>>>> 150005586d8c1dbb730d88efe9297d676452ab22
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 

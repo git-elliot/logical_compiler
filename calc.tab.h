@@ -43,6 +43,7 @@ extern int yydebug;
 /* Token type.  */
 #ifndef YYTOKENTYPE
 # define YYTOKENTYPE
+<<<<<<< HEAD
   enum yytokentype
   {
     INTEGER = 258,
@@ -56,6 +57,35 @@ extern int yydebug;
     GT = 266
   };
 #endif
+=======
+   /* Put the tokens into the symbol table, so that GDB and other debuggers
+      know about them.  */
+   enum yytokentype {
+     INTEGER = 258,
+     VARIABLE = 259,
+     BOOLEAN = 260,
+     GT = 261,
+     LT = 262,
+     NE = 263,
+     EQ = 264,
+     GE = 265,
+     LE = 266
+   };
+#endif
+/* Tokens.  */
+#define INTEGER 258
+#define VARIABLE 259
+#define BOOLEAN 260
+#define GT 261
+#define LT 262
+#define NE 263
+#define EQ 264
+#define GE 265
+#define LE 266
+
+
+
+>>>>>>> 150005586d8c1dbb730d88efe9297d676452ab22
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
