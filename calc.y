@@ -5,7 +5,7 @@ int yylex(void);
 int sym[26];
 %}
 
-%token INTEGER VARIABLE
+%token INTEGER VARIABLE BOOLEAN
 %left '+' '-'
 %left '*' '/'
 
@@ -16,9 +16,19 @@ program statement '\n'
 ;
 statement:
 expr { printf("%d\n", $1); }
+| lexpr { printf("%d\n",$1);}
+| statement ',' statement
 | VARIABLE '=' expr { sym[$1] = $3; }
+| VARIABLE '=' lexpr { sym[$1] =$3; }
 ;
 
+   
+lexpr : INTEGER         
+| lexpr '>' lexpr { if($1 > $3){ $$ = 1;}else { $$ =0;}}
+| lexpr '<' lexpr { if($1 < $3){ $$ = 1;}else { $$ =0;}}
+| lexpr '=' '=' lexpr {if($1 == $3){ $$ = 1;}else { $$ =0;} }
+| lexpr '?' INTEGER ':' INTEGER {  if($1){ $$=$3;}else{ $$=$5;} } 
+;
 
 expr: 
 INTEGER
@@ -27,9 +37,10 @@ INTEGER
 | expr '+' expr   { $$ = $1 + $3;}
 | expr '-' expr   { $$ = $1 - $3;}
 | expr '*' expr   { $$ = $1 * $3;}
-| expr '/' expr   { if($3==0){yyerror("Division by 0 error");} else{$$ = $1/$3;} }
+| expr '/' expr   { if($3==0){yyerror("Division by 0 error");} else{$$ = $1/$3;} }         
 | '(' expr ')'    { $$ = $2; }
 ;
+
 %%
 #include "lex.yy.c"
 void yyerror(char *s) {

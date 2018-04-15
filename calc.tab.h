@@ -46,7 +46,8 @@ extern int yydebug;
   enum yytokentype
   {
     INTEGER = 258,
-    VARIABLE = 259
+    VARIABLE = 259,
+    BOOLEAN = 260
   };
 #endif
 
